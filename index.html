@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="x-icon" href="image/gambar-bgs.png">
+  <title>Sistem Literasi BGS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<!-- MODAL DETAIL BUKU -->
+<div id="modalBuku" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalJudul"></h3>
+    <p><b>Kategori:</b> <span id="modalKategori"></span></p>
+    <p><b>Status:</b> Tersedia</p>
+    <p><b>Lokasi:</b> Rak Literasi BGS</p>
+  </div>
+</div>
+<!-- MODAL ANGGOTA -->
+<div id="modalAnggota" class="modal">
+  <div class="modal-content">
+    <span class="close closeAnggota">&times;</span>
+    <h3 id="anggotaNama"></h3>
+    <p><b>ID:</b> <span id="anggotaID"></span></p>
+    <p><b>Role:</b> <span id="anggotaRole"></span></p>
+    <p><b>Status:</b> <span id="anggotaStatus"></span></p>
+  </div>
+</div>
+<!-- MODAL LAYANAN -->
+<div id="modalLayanan" class="modal">
+  <div class="modal-content">
+    <span class="close closeLayanan">&times;</span>
+    <h3 id="layananTitle"></h3>
+    <p id="layananDesc"></p>
+  </div>
+</div>
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast">
+  <span id="toastMsg"></span>
+</div>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <div class="logo-wrap">
+      <img src="image/gambar-bgs.png" alt="Logo BGS" class="logo">
+      <span class="logo-ring"></span>
+    </div>
+    <div class="brand-text">
+      <h1>Sistem Literasi & Perpustakaan BGS</h1>
+      <small>Digital Library & Academic System</small>
+    </div>
+  </div>
+
+  <button id="modeToggle">🌙 Dark Mode</button>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <button onclick="showPage('dashboard')" class="active">📊 Dashboard</button>
+    <button onclick="showPage('buku')">📚 Data Buku</button>
+    <button onclick="showPage('anggota')">👥 Anggota</button>
+    <button onclick="showPage('layanan')">🧠 Layanan Literasi</button>
+    <button onclick="showPage('profil')">👤 Profil</button>
+    
+  </aside>
+
+  <!-- KONTEN -->
+  <main class="content">
+
+    <section id="dashboard" class="page">
+      <h2>Dashboard</h2>
+<p>
+  Selamat datang di <b>Sistem Literasi & Perpustakaan Digital BGS</b> — sebuah platform modern
+  yang dirancang dengan konsep <i>smart academic system</i> seperti SIAKAD.
+  Website ini menjadi pusat kendali informasi literasi, koleksi perpustakaan,
+  serta aktivitas pengguna dalam satu tampilan yang rapi, cepat, dan interaktif.
+</p>
+
+<p>
+  Melalui dashboard ini, pengguna dapat mengakses data buku, aktivitas membaca,
+  layanan perpustakaan, hingga informasi akademik literasi secara real-time.
+  Dengan desain kekinian dan navigasi berbasis JavaScript, Sistem BGS menghadirkan
+  pengalaman digital yang efisien, responsif, dan mudah digunakan kapan saja.
+</p>
+
+    </section>
+
+    <section id="buku" class="page">
+  <h2>Data Buku</h2>
+
+  <ul class="buku-list">
+    <li>
+      <span class="buku-icon"
+            data-judul="Pemrograman Web"
+            data-kategori="Teknologi Informasi">
+        📘
+      </span>
+      Pemrograman Web
+    </li>
+
+    <li>
+      <span class="buku-icon"
+            data-judul="Manajemen Perpustakaan"
+            data-kategori="Ilmu Perpustakaan">
+        📗
+      </span>
+      Manajemen Perpustakaan
+    </li>
+
+    <li>
+      <span class="buku-icon"
+            data-judul="Literasi Digital"
+            data-kategori="Literasi">
+        📙
+      </span>
+      Literasi Digital
+    </li>
+
+    <li>
+      <span class="buku-icon"
+            data-judul="Desain UI/UX"
+            data-kategori="Desain & Kreatif">
+        📕
+      </span>
+      Desain UI/UX
+    </li>
+  </ul>
+</section>
+
+    <section id="anggota" class="page">
+  <h2>Data Anggota</h2>
+
+  <div class="anggota-grid">
+
+    <div class="anggota-card"
+         data-nama="Fadil Tri Sukma"
+         data-role="Mahasiswa"
+         data-status="Aktif"
+         data-id="2211050112">
+      👤 Fadil Tri Sukma
+    </div>
+
+    <div class="anggota-card"
+         data-nama="Muhammad Najib Amin"
+         data-role="Mahasiswa"
+         data-status="Aktif"
+         data-id="2211050101">
+      👤 Muhammad Najib Amin
+    </div>
+
+    <div class="anggota-card"
+         data-nama="Muhammad Afif"
+         data-role="Mahasiswa"
+         data-status="Aktif"
+         data-id="2211050099">
+      👤 Muhammad Afif
+    </div>
+
+    <div class="anggota-card"
+         data-nama="Admin BGS"
+         data-role="Administrator"
+         data-status="Pengelola"
+         data-id="ADM01">
+      👤 Admin BGS "Bhagas Aulia"
+    </div>
+
+  </div>
+</section>
+
+   <section id="layanan" class="page">
+  <h2>Layanan Literasi</h2>
+
+  <div class="layanan-grid">
+
+    <div class="layanan-card"
+         data-title="Peminjaman Buku"
+         data-desc="Layanan peminjaman koleksi cetak perpustakaan BGS dengan sistem terdata dan terkontrol."
+         data-icon="📚">
+      📚
+      <h3>Peminjaman Buku</h3>
+      <p>Akses koleksi fisik</p>
+    </div>
+
+    <div class="layanan-card"
+         data-title="Akses E-Book"
+         data-desc="Akses buku digital dan referensi online yang dapat dibaca kapan saja dan di mana saja."
+         data-icon="💻">
+      💻
+      <h3>Akses E-Book</h3>
+      <p>Literasi digital</p>
+    </div>
+
+    <div class="layanan-card"
+         data-title="Pelatihan Literasi Digital"
+         data-desc="Program pelatihan untuk meningkatkan kemampuan literasi digital dan pemanfaatan teknologi."
+         data-icon="🧠">
+      🧠
+      <h3>Pelatihan Digital</h3>
+      <p>Skill masa depan</p>
+    </div>
+
+    <div class="layanan-card"
+         data-title="Konsultasi Referensi"
+         data-desc="Bantuan pencarian sumber referensi ilmiah untuk tugas, skripsi, dan penelitian."
+         data-icon="📖">
+      📖
+      <h3>Konsultasi Referensi</h3>
+      <p>Bimbingan akademik</p>
+    </div>
+
+  </div>
+</section>
+
+    <section id="profil" class="page">
+     <h2>Profil</h2>
+<p>
+Perpustakaan <b>BGS</b> merupakan pusat literasi digital yang dirancang sebagai sarana pembelajaran, 
+pengelolaan informasi, serta pengembangan wawasan bagi pengguna. 
+Mengusung konsep modern dan inspiratif, Perpustakaan BGS hadir untuk mendukung 
+budaya membaca dan pembelajaran berkelanjutan di era digital.
+</p>
+
+<p>
+Website ini dikembangkan oleh <b>Bhagas Aulia</b> sebagai media pembelajaran dan praktik 
+penerapan teknologi web, khususnya HTML, CSS, dan JavaScript lanjutan, 
+dengan pendekatan sistem informasi yang interaktif dan mudah diakses.
+</p>
+<div class="profil-wa">
+  <a href="https://wa.me/6283165758021" target="_blank" class="wa-link">
+    <img src="image/logo whatsapp.png" alt="WhatsApp" class="wa-logo">
+    <span class="wa-text">Contact Admin</span>
+  </a>
+</div>
+  </main>
+
+</div>
+
+<footer>
+  <p>© 2025 Bhagas Aulia | Sistem Literasi BGS</p>
+</footer>
+
+</body>
+</html>

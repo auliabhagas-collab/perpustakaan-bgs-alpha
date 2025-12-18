@@ -1,0 +1,512 @@
+/* ===============================
+   GLOBAL RESET & THEME
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top, #0b1a33, #05080f);
+  color: #eaf3ff;
+  transition: 0.4s;
+}
+
+/* LIGHT MODE */
+body.light {
+  background: #f2f6ff;
+  color: #111;
+}
+
+/* ===============================
+   HEADER
+================================ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(10, 25, 50, 0.8);
+  backdrop-filter: blur(14px);
+  border-bottom: 2px solid rgba(77,163,255,0.6);
+  box-shadow: 0 0 25px rgba(77,163,255,0.6);
+}
+
+header h1 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #4da3ff, #b3dcff, #4da3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+#modeToggle {
+  background: linear-gradient(135deg, #1f6bff, #4da3ff);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(77,163,255,0.8);
+  transition: 0.3s;
+}
+
+#modeToggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(77,163,255,1);
+}
+
+/* ===============================
+   LAYOUT
+================================ */
+.container {
+  display: flex;
+  min-height: calc(100vh - 140px);
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+.sidebar {
+  width: 240px;
+  padding: 25px;
+  background: rgba(12, 30, 65, 0.9);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(77,163,255,0.3);
+  box-shadow: inset 0 0 20px rgba(77,163,255,0.15);
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: transparent;
+  color: #eaf3ff;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+/* BLING SHINE EFFECT */
+.sidebar button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.sidebar button:hover::before {
+  left: 120%;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: linear-gradient(135deg, #1f6bff, #4da3ff);
+  box-shadow: 0 0 25px rgba(77,163,255,0.9);
+}
+
+/* ===============================
+   CONTENT AREA
+================================ */
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+.page {
+  display: none;
+  animation: fadeUp 0.6s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+/* ===============================
+   DASHBOARD CARD
+================================ */
+.card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(77,163,255,0.35);
+  box-shadow:
+    0 0 30px rgba(77,163,255,0.5),
+    inset 0 0 12px rgba(255,255,255,0.08);
+  transition: 0.4s;
+}
+
+.card h3 {
+  color: #bfe1ff;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 50px rgba(77,163,255,0.9),
+    inset 0 0 18px rgba(255,255,255,0.15);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(10, 25, 50, 0.9);
+  border-top: 1px solid rgba(77,163,255,0.3);
+  box-shadow: 0 0 20px rgba(77,163,255,0.4);
+}
+
+/* ===============================
+   LIGHT MODE OVERRIDE
+================================ */
+body.light header,
+body.light footer,
+body.light .sidebar {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+body.light .sidebar button {
+  color: #111;
+}
+
+body.light .card {
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 25px rgba(31,79,216,0.35);
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -300px; }
+  100% { background-position: 300px; }
+}
+/* ===============================
+   LOGO LEVEL PRO
+================================ */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 1.5px;
+}
+
+.brand-text small {
+  font-size: 12px;
+  color: #9cc9ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* LOGO WRAPPER */
+.logo-wrap {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LOGO IMAGE */
+.logo {
+  width: 42px;
+  z-index: 2;
+  filter:
+    drop-shadow(0 0 6px rgba(77,163,255,0.7))
+    drop-shadow(0 0 16px rgba(77,163,255,0.5));
+  transition: 0.4s ease;
+}
+
+/* METALLIC RING */
+.logo-ring {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #4da3ff,
+    #b3dcff,
+    #4da3ff
+  );
+  animation: spinRing 6s linear infinite;
+  filter: blur(0.5px);
+}
+
+/* HOVER EFFECT */
+.logo-wrap:hover .logo {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.logo-wrap:hover .logo-ring {
+  filter: blur(1px) brightness(1.2);
+}
+
+/* LIGHT MODE */
+body.light .logo {
+  filter: drop-shadow(0 0 4px rgba(31,79,216,0.5));
+}
+
+body.light .logo-ring {
+  background: conic-gradient(
+    from 0deg,
+    #1f6bff,
+    #cfe3ff,
+    #1f6bff
+  );
+}
+
+/* ANIMATION */
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar button {
+    width: calc(50% - 10px);
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .brand-text h1 {
+    font-size: 18px;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+
+  .logo-wrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo {
+    width: 34px;
+  }
+}
+/* ===============================
+   MODAL DETAIL BUKU
+================================ */
+.buku-list li {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.buku-icon {
+  cursor: pointer;
+  font-size: 22px;
+  margin-right: 6px;
+  transition: 0.3s;
+}
+
+.buku-icon:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 12px #4da3ff;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #0f1e3a, #122f5c);
+  width: 90%;
+  max-width: 420px;
+  margin: 12% auto;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(77,163,255,0.9);
+  animation: fadeUp 0.4s ease;
+}
+
+.modal-content h3 {
+  color: #4da3ff;
+  margin-bottom: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+}
+/* ===============================
+   DATA ANGGOTA
+================================ */
+.anggota-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.anggota-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(77,163,255,0.4);
+  box-shadow: 0 0 25px rgba(77,163,255,0.5);
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 600;
+}
+
+.anggota-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 0 45px rgba(77,163,255,0.9);
+}
+/* ===============================
+   LAYANAN LITERASI
+================================ */
+.layanan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.layanan-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(77,163,255,0.4);
+  box-shadow: 0 0 30px rgba(77,163,255,0.5);
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.layanan-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.layanan-card:hover::before {
+  left: 150%;
+}
+
+.layanan-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 55px rgba(77,163,255,0.9);
+}
+
+.layanan-card h3 {
+  margin: 12px 0 6px;
+  color: #bfe1ff;
+}
+
+.layanan-card p {
+  font-size: 14px;
+  color: #cde6ff;
+}
+/* ===============================
+   WhatsApp Profil
+================================ */
+
+.profil-wa {
+  margin-top: 25px;
+}
+
+.wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s ease;
+}
+
+.wa-link:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+.wa-logo {
+  width: 26px;
+  height: 26px;
+}
+
+.wa-text {
+  font-size: 15px;
+}
